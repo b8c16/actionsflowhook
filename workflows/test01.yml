@@ -2,13 +2,13 @@ on:
   poll:
     url: https://jsonplaceholder.typicode.com/posts
     config:
-      format: |
-        a = new Date()
-        b = a.getHours()
-        c = a.getMinutes()
-        d = a.getSeconds()
-        item.zeit = b+':'+c+':'+d
-        item.title = item.title.substring(0,5)
+      filterScript: |
+        a = new Date();
+        b = a.getHours();
+        c = a.getMinutes();
+        d = a.getSeconds();
+        item.zeit = b+':'+c+':'+d;
+        item.title = item.title.substring(0,5);
         return item;
 jobs:
     test-axios-action:
