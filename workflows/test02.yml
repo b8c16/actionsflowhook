@@ -1,6 +1,8 @@
 on:
   webhook:
     config:
+      loglevel: debug
+      debug: 1
       format: |
         a = new Date()
         b = a.getHours()
