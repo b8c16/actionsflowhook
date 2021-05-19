@@ -1,0 +1,27 @@
+on:
+  poll:
+    url: https://jsonplaceholder.typicode.com/posts
+    config:
+      format: |
+        a = new Date()
+        b = a.getHours()
+        c = a.getMinutes()
+        d = a.getSeconds()
+        item.zeit = b+':'+c+':'+d
+        item.title = item.title.substring(0,5)
+        return item;
+jobs:
+    test-axios-action:
+        name: 'Perform REST API'
+        runs-on: ubuntu-latest
+        steps:
+            - name: 'Call API'
+              uses: actionsflow/axios@v1
+              with:
+                # The target URL
+                # Required: true if custom-config is not set
+                url: ${{ secrets.WEBEX_POST_URL }}
+                method: 'POST'
+                content-type: application/json
+                data: '{ "markdown" : "${{ on.poll.outputs.item.zeit }}" }'
+                timeout: 10000
