@@ -1,12 +1,12 @@
 on:
   webhook:
     config:
-      filterScript: |
-        a = new Date();
-        b = a.getHours();
-        c = a.getMinutes();
-        d = a.getSeconds();
-        body = '{"time" : "' + b+':'+c+':'+d + '"}';
+      format: |
+        a = new Date()
+        b = a.getHours()
+        c = a.getMinutes()
+        d = a.getSeconds()
+        body = '{"time" : "' + b+':'+c+':'+d + '"}'
         return body;
 jobs:
   print:
