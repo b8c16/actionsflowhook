@@ -1,6 +1,5 @@
 on:
   webhook:
-    method: post
     config:
       filterScript: |
         a = new Date();
