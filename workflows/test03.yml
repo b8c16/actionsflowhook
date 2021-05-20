@@ -25,9 +25,9 @@ jobs:
           url: ${{ secrets.FRIENDICA_POST_URL }}
           method: 'POST'
           accept: 200,201,204
-          content-type: application/x-www-form-urlencoded
-#           content-type: application/json
-          data: 'title="Tidel"&status="Stadus"'
+#           content-type: application/x-www-form-urlencoded
+          content-type: application/json
+          data: '{"status":{"title":"Tidel","status":"Stadus","source":"A Ebb"}}'
           timeout: 10000
           basic-auth: ${{ secrets.FRIENDICA_KEY }}
           is_debug: false
