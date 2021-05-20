@@ -19,14 +19,14 @@ jobs:
     name: 'Perform REST API'
       runs-on: ubuntu-latest
       steps:
-          - name: 'Call API'
-            uses: actionsflow/axios@v1
-            with:
-              url: ${{ secrets.FRIENDICA_POST_URL }}
-              method: 'POST'
-              accept: 200,201,204
-              content-type: application/x-www-form-urlencoded
-              data: 'status=test'
-              timeout: 10000
-              basic-auth: ${{ secrets.FRIENDICA_KEY }}
-              is_debug: false
+        - name: 'Call API'
+          uses: actionsflow/axios@v1
+          with:
+            url: ${{ secrets.FRIENDICA_POST_URL }}
+            method: 'POST'
+            accept: 200,201,204
+            content-type: application/x-www-form-urlencoded
+            data: 'status=test'
+            timeout: 10000
+            basic-auth: ${{ secrets.FRIENDICA_KEY }}
+            is_debug: false
