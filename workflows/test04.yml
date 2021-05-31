@@ -8,11 +8,11 @@ on:
     timeZone: UTC+02:00
     config:
       logLevel: trace
-    format: |
-      if(current.weather.0.main == "Clear"){
-        current.weather.0.main = "sonnig"
-        }
-      return current;
+      format: |
+        if(current.weather.0.main == "Clear"){
+          current.weather.0.main = "sonnig"
+          }
+        return current;
 jobs:
   print:
     name: Print
