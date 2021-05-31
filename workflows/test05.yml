@@ -7,7 +7,7 @@ on:
       units: metric
     timeZone: UTC+02:00
     config:
-      logLevel: trace
+      logLevel: debug
 jobs:
   print:
     name: Print
