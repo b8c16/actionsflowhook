@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: Print Outputs
         env:
-          current_cond: ${{ on.weather.outputs.daily.0.weather.0.main )}}
+          current_cond: ${{ on.weather.outputs.daily.0.weather.0.main }}
         run: |
           echo current_cond: $current_cond
       
