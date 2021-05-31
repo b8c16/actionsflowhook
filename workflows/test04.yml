@@ -1,0 +1,26 @@
+on:
+  weather:
+    apiKey: ${{ secrets.OPENWEATHERMAP_API_KEY }}
+    params:
+      lat: 48.137000
+      lon: 11.575000
+      units: metric
+    timeZone: UTC+02:00
+    config:
+      logLevel: trace
+    format: |
+      if(daily.0.weather.0.main == "sunny""){
+        daily.0.weather.0.main = "sonnig"
+        }
+      return daily;
+jobs:
+  print:
+    name: Print
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Outputs
+        env:
+          current_cond: ${{ on.weather.outputs.daily.0.weather.0.main )}}
+        run: |
+          echo current_cond: $current_cond
+      
