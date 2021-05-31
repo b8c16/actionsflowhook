@@ -9,7 +9,7 @@ on:
     config:
       logLevel: trace
     format: |
-      if(current.weather.0.main == "Clear""){
+      if(current.weather.0.main == "Clear"){
         current.weather.0.main = "sonnig"
         }
       return current;
@@ -20,7 +20,7 @@ jobs:
     steps:
       - name: Print Outputs
         env:
-          current_cond: ${{ on.weather.outputs.current.weather.0.main )}}
+          current_cond: ${{ on.weather.outputs.current.weather.0.main }}
         run: |
           echo current_cond: $current_cond
       
