@@ -13,7 +13,8 @@ on:
 #           $eq: Clear
       format: |
         let unix_timestamp = item.current.dt
-        var date = new Date(unix_timestamp * 1000)
+        var utcdate = new Date(unix_timestamp * 1000)
+        var date = utcdate.toLocaleString('de-DE', { timeZone: 'Europe/Berlin' })
         var hours = date.getHours()
         var minutes = "0" + date.getMinutes()
         var seconds = "0" + date.getSeconds()
