@@ -7,9 +7,12 @@ on:
       units: metric
     timeZone: UTC+02:00
     config:
-      logLevel: trace
+      logLevel: debug
+      filter:
+        "daily.0.weather.0.main"
+          $eq: Clear
       format: |
-        item.current.weather.0.main = "sonnig"
+        item.timezone = "sonnig"
         return item;
 jobs:
   print:
@@ -18,7 +21,7 @@ jobs:
     steps:
       - name: Print Outputs
         env:
-          current_cond: ${{ on.weather.outputs.current.weather.0.main }}
+          current_cond: ${{ on.weather.outputs.timezone }}
         run: |
           echo current_cond: $current_cond
       
