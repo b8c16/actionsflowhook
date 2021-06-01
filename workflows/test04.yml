@@ -9,8 +9,8 @@ on:
     config:
       logLevel: trace
       format: |
-        if(item.current.weather.main == "Clear"){
-          item.current.weather.main = "sonnig"
+        if(item.daily.1.weather.0.main == "Clear"){
+          item.daily.1.weather.0.main = "sonnig";
           }
         return item;
 jobs:
