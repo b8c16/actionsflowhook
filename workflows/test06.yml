@@ -12,7 +12,7 @@ on:
         "daily.1.weather.0.main":
           $eq: Clear
       format: |
-        daily[1].weather[0].main = "sonnig"
+        item.daily[1].weather[0].main = "sonnig"
         return item;
 jobs:
   print:
