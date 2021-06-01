@@ -9,7 +9,7 @@ on:
     config:
       logLevel: debug
       filter:
-        "daily.0.weather.0.main"
+        "daily.0.weather.0.main":
           $eq: Clear
       format: |
         item.timezone = "sonnig"
