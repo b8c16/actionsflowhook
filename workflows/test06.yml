@@ -14,7 +14,7 @@ on:
       format: |
         let unix_timestamp = item.current.dt
         var utcdate = new Date(unix_timestamp * 1000)
-        var date = utcdate.toLocaleString('de-DE', { timeZone: 'Europe/Berlin', timeStyle: 'medium', hour12: 'true' })
+        var date = utcdate.toLocaleString("de-DE", { timeZone: 'Europe/Berlin', timeStyle: 'medium' })
         var formattedTime = date
         if(item.current.weather[0].main == "Clear") {
           item.daily[1].weather[0].main = "sonnig" + " " + formattedTime
