@@ -7,10 +7,7 @@ on:
       units: metric
     timeZone: UTC+02:00
     config:
-#       logLevel: debug
-#       filter:
-#         "daily.0.weather.0.main":
-#           $eq: Clear
+      force: true
       format: |
         let unix_timestamp = item.current.dt
         var utcdate = new Date(unix_timestamp * 1000)
