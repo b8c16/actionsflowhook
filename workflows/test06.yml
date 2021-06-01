@@ -40,5 +40,5 @@ jobs:
           method: 'POST'
           accept: 200,201,204
           content-type: application/json
-          data: '{ "markdown": "${{ on.weather.outputs.daily.1.weather.0.main }}" }'
+          data: '{"markdown" : "${{ on.weather.outputs.daily.1.weather.0.main }}"}'
           timeout: 10000
