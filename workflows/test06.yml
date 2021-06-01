@@ -17,9 +17,9 @@ on:
         var date = utcdate.toLocaleString('de-DE', { timeZone: 'Europe/Berlin', timeStyle: 'medium', hourCycle: 'h24' })
         var formattedTime = date
         if(item.current.weather[0].main == "Clear") {
-          item.daily[1].weather[0].main = "sonnig" + " " + formattedTime
+          item.daily[1].weather[0].main = "sonnig" + " " + formattedTime + " " + item.current.weather[0].main
           } else {
-          item.daily[1].weather[0].main = "doof" + " " + formattedTime
+          item.daily[1].weather[0].main = "doof" + " " + formattedTime+ " " + item.current.weather[0].main
           }
         return item;
 jobs:
