@@ -7,10 +7,10 @@ on:
       units: metric
     timeZone: UTC+02:00
     config:
-      logLevel: debug
-      filter:
-        "daily.0.weather.0.main":
-          $eq: Clear
+#       logLevel: debug
+#       filter:
+#         "daily.0.weather.0.main":
+#           $eq: Clear
       format: |
         item.daily[1].weather[0].main = "sonnig"
         return item;
