@@ -15,10 +15,11 @@ on:
         let unix_timestamp = item.current.dt
         var utcdate = new Date(unix_timestamp * 1000)
         var date = utcdate.toLocaleString('de-DE', { timeZone: 'Europe/Berlin' })
-        var hours = date.getHours()
-        var minutes = "0" + date.getMinutes()
-        var seconds = "0" + date.getSeconds()
-        var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2)
+#        var hours = date.getHours()
+#        var minutes = "0" + date.getMinutes()
+#        var seconds = "0" + date.getSeconds()
+#        var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2)
+        formattedTime = date
         if(item.current.weather[0].main == "Clear") {
           item.daily[1].weather[0].main = "sonnig" + " " + formattedTime
           } else {
