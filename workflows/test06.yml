@@ -10,6 +10,8 @@ on:
     timeZone: UTC+02:00
     config:
       force: true
+      debug: true
+      logLevel: debug
       format: |
         let unix_timestamp = item.current.dt
         var utcdate = new Date(unix_timestamp * 1000)
