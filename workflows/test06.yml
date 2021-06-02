@@ -32,19 +32,19 @@ jobs:
           current_cond: ${{ on.weather.outputs.daily.1.weather.0.main }}
         run: |
           echo current_cond: $current_cond
-#   test-axios-action:
-#     name: 'Perform REST API'
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Webex anrufen
-#         uses: actionsflow/axios@v1
-#         with:
-#           url: ${{ secrets.WEBEX_URL_ROOSCM }}
-#           method: 'POST'
-#           accept: 200,201,204
-#           content-type: application/json
-#           body: |
-#             {
-#               "markdown" : "${{ on.weather.outputs.daily.1.weather.0.main }}"
-#             }
-#           timeout: 10000
+  test-axios-action:
+    name: 'Perform REST API'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Webex anrufen
+        uses: actionsflow/axios@v1
+        with:
+          url: ${{ secrets.WEBEX_URL_ROOSCM }}
+          method: 'POST'
+          accept: 200,201,204
+          content-type: application/json
+          body: |
+            {
+              "markdown" : "${{ on.weather.outputs.daily.1.weather.0.main }}"
+            }
+          timeout: 10000
