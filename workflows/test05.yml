@@ -6,6 +6,8 @@ on:
       lon: 11.575
       units: metric
     timeZone: UTC+02:00
+    config:
+      active: false
 jobs:
   print:
     name: Print
