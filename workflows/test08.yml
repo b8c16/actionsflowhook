@@ -34,4 +34,5 @@ jobs:
         with:
           url: ${{ secrets.WEBEX_URL_ROOSCM }}
           data: '{"markdown": "${{ on.weather.outputs.timezone }}"}'
+      - run: echo ${{ on.weather.outputs.timezone }}
           
