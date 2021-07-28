@@ -1,6 +1,11 @@
 on:
   webhook:
     method: get
+    config:
+      active: true
+      force: true
+      debug: true
+      logLevel: debug
   weather:
     apiKey: ${{ secrets.OPENWEATHERMAP_API_KEY }}
     params:
