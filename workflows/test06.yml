@@ -48,3 +48,10 @@ jobs:
               "markdown" : "PING"
             }
           timeout: 10000
+  call-webhook:
+    - name: Webhook
+      uses: joelwmale/webhook-action@master
+      with:
+        url: ${{ secrets.WEBEX_URL_ROOSCM }}
+        headers: '{"markdown": "PONG ${{ on.weather.outputs.current.feels_like }}"}'
+        body: '{"markdown": "PING ${{ on.weather.outputs.current.feels_like }}"}'
