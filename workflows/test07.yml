@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Webhook
-        uses: joelwmale/webhook-action@master
+        uses: muinmomin/webhook-action@v1.0.0
         with:
-         url: ${{ secrets.WEBEX_URL_ROOSCM }}
-         body: '{"markdown": "PING"}'
+          url: ${{ secrets.WEBEX_URL_ROOSCM }}
+          data: "{'markdown': 'PING'}"
