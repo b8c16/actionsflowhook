@@ -1,0 +1,37 @@
+on:
+  webhook:
+    method: get
+  weather:
+    apiKey: ${{ secrets.OPENWEATHERMAP_API_KEY }}
+    params:
+      lat: 48.137000
+      lon: 11.575000
+      units: metric
+    timeZone: UTC+02:00
+    config:
+      force: true
+      debug: true
+      active: true
+      logLevel: debug
+      format: |
+        let unix_timestamp = item.current.dt
+        var utcdate = new Date(unix_timestamp * 1000)
+        var date = utcdate.toLocaleString('de-DE', { timeZone: 'Europe/Berlin', timeStyle: 'medium', hourCycle: 'h24' })
+        var formattedTime = date
+        if(item.current.weather[0].main == "Clear") {
+          item.timezone = "sonnig" + " " + formattedTime + " " + item.current.weather[0].main
+          } else {
+          item.timezone = "doof" + " " + formattedTime+ " " + item.current.weather[0].main
+          }
+        return item;
+jobs:
+  call-webhook:
+    name: 'Perform WEBHOOK'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Webhook
+        uses: muinmomin/webhook-action@v1.0.0
+        with:
+          url: ${{ secrets.WEBEX_URL_ROOSCM }}
+          data: '{"markdown": "${{ on.weather.outputs.timezone }}"}'
+          
