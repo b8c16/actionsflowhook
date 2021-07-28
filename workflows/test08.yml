@@ -10,7 +10,7 @@ on:
     timeZone: UTC+02:00
     config:
       force: true
-      debug: false
+      debug: true
       active: true
       logLevel: debug
       format: |
