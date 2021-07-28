@@ -32,22 +32,6 @@ jobs:
           current_cond: ${{ on.weather.outputs.current.feels_like }}
         run: |
           echo current_cond: $current_cond
-  test-axios-action:
-    name: 'Perform REST API'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Webex anrufen
-        uses: actionsflow/axios@v1
-        with:
-          url: ${{ secrets.WEBEX_URL_ROOSCM }}
-          method: 'POST'
-          accept: 200,201,204
-          content-type: application/json
-          body: |
-            {
-              "markdown" : "PING"
-            }
-          timeout: 10000
   call-webhook:
     name: 'Perform WEBHOOK'
     runs-on: ubuntu-latest
