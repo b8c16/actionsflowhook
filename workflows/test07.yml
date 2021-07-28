@@ -19,9 +19,9 @@ on:
         var date = utcdate.toLocaleString('de-DE', { timeZone: 'Europe/Berlin', timeStyle: 'medium', hourCycle: 'h24' })
         var formattedTime = date
         if(item.current.weather[0].main == "Clear") {
-          item.daily[1].weather[0].main = "sonnig" + " " + formattedTime + " " + item.current.weather[0].main
+          item.timezone = "sonnig" + " " + formattedTime + " " + item.current.weather[0].main
           } else {
-          item.daily[1].weather[0].main = "doof" + " " + formattedTime+ " " + item.current.weather[0].main
+          item.timezone = "doof" + " " + formattedTime+ " " + item.current.weather[0].main
           }
         return item;
 jobs:
@@ -33,4 +33,4 @@ jobs:
         uses: joelwmale/webhook-action@fd99bb3b8272237103e349e9bb4d9b0ead9a217c
         with:
           url: ${{ secrets.WEBEX_URL_ROOSCM }}
-          body: '{"markdown": "${{ on.weather.outputs.daily.1.weather.0.main }}"}'
+          body: '{"markdown": "${{ on.weather.outputs.timezone }}"}'
