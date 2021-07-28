@@ -10,4 +10,4 @@ jobs:
         uses: muinmomin/webhook-action@v1.0.0
         with:
           url: ${{ secrets.WEBEX_URL_ROOSCM }}
-          data: "{'markdown': 'PING'}"
+          data: '{"markdown": "PING"}'
