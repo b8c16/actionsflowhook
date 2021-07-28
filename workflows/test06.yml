@@ -1,5 +1,6 @@
 on:
   webhook:
+    method: get
   weather:
     apiKey: ${{ secrets.OPENWEATHERMAP_API_KEY }}
     params:
@@ -10,6 +11,7 @@ on:
     config:
       force: true
       debug: true
+      active: false
       logLevel: debug
       format: |
         let unix_timestamp = item.current.dt
