@@ -1,0 +1,13 @@
+on:
+  webhook:
+    method: get
+jobs:
+  call-webhook:
+    name: 'Perform WEBHOOK'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Webhook
+        uses: muinmomin/webhook-action@v1.0.0
+        with:
+          url: ${{ secrets.WEBEX_URL_ROOSCM }}
+          data: '{"markdown": "PING"}'
