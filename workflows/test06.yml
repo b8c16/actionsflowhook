@@ -45,6 +45,6 @@ jobs:
           content-type: application/json
           body: |
             {
-              "markdown" : "${{ on.weather.outputs.daily.1.weather.0.main }}"
+              "markdown" : "PING"
             }
           timeout: 10000
