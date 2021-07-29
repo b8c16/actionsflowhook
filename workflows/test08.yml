@@ -16,7 +16,7 @@ on:
     config:
       force: true
       debug: true
-      active: true
+      active: false
       logLevel: debug
       format: |
         let unix_timestamp = item.current.dt
