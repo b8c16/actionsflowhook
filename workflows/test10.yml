@@ -15,7 +15,7 @@ jobs:
         uses: actionsflow/axios@v1
         id: api
         with:
-          url: ${{ secrets. WETTER_TEST_URL }}
+          url: ${{ secrets.WETTER_TEST_URL }}
           method: 'GET'
       - run: echo ${{ steps.api.outputs.status }}
       - run: echo ${{ steps.api.outputs.data }}
