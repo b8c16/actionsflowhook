@@ -21,3 +21,7 @@ jobs:
       - run: echo ${{ steps.api.outputs.status }}
       - run: echo ${{ steps.api.outputs.data }}
       - run: echo ${{ steps.api.outputs.headers }}
+      - run: |
+          echo Status: ${{ steps.api.outputs.status }}
+          echo Daten: ${{ steps.api.outputs.data }}
+          echo Header: ${{ steps.api.outputs.headers }}
