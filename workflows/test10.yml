@@ -15,7 +15,7 @@ jobs:
         uses: actionsflow/axios@v1
         id: api
         with:
-          url: https://hookbin.com/zrreNjDmJPiol3MMlez2
+          url: https://hookbin.com/Oeenpmm0WKcqOdYYO3ax
           method: 'POST'
           data: '{ "name": "koanama",  "job": "nixzumdoa" }'
       - run: echo ${{ steps.api.outputs.status }}
