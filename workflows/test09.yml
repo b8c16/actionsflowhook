@@ -7,31 +7,30 @@ on:
       debug: true
       logLevel: debug
 jobs:
-    test-curl-action:
-        name: 'Perform REST API'
-        runs-on: ubuntu-latest
-        steps:
-            - name: 'Call API'
-              uses: actionsflow/axios@v1
-              id: api
-              with:
-                url: https://hookbin.com/zrreNjDmJPiol3MMlez2
-                method: 'POST'
-                data: '{ "name": "breeze",  "job": "devops" }'
-              env:
-                status: ${{ steps.api.outputs.status }}
-                data: ${{ steps.api.outputs.data }}
-                header: ${{ steps.api.outputs.headers }}
-              run: |
-                echo titel: $status
-                echo daten: $data
-                echo kopf: $header
-            - run: echo ${{ steps.api.outputs.status }}
-            - run: echo ${{ steps.api.outputs.data }}
-            - run: echo ${{ steps.api.outputs.headers }}
-            - name: Ausgabe
-              run: |
-                echo titel: $status
-                echo daten: $data
-                echo kopf: $header
-            
+  test-curl-action:
+    name: 'Perform REST API'
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Call API'
+        uses: actionsflow/axios@v1
+        id: api
+        with:
+          url: https://hookbin.com/zrreNjDmJPiol3MMlez2
+          method: 'POST'
+          data: '{ "name": "breeze",  "job": "devops" }'
+        env:
+          status: ${{ steps.api.outputs.status }}
+          data: ${{ steps.api.outputs.data }}
+          header: ${{ steps.api.outputs.headers }}
+        run: |
+          echo titel: $status
+          echo daten: $data
+          echo kopf: $header
+      - run: echo ${{ steps.api.outputs.status }}
+      - run: echo ${{ steps.api.outputs.data }}
+      - run: echo ${{ steps.api.outputs.headers }}
+      - name: Ausgabe
+        run: |
+          echo titel: $status
+          echo daten: $data
+          echo kopf: $header
