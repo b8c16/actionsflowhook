@@ -21,6 +21,6 @@ jobs:
 #      - run: echo ${{ steps.api.outputs.data }}
 #      - run: echo ${{ steps.api.outputs.headers }}
       - run: |
-          echo Status: ${{ steps.api.outputs.data['lat'] }}
-          echo Daten: ${{ steps.api.outputs.data['timezone'] }}
-          echo Header: ${{ steps.api.outputs.data['current'] }}
+          echo Status: ${{ fromJSON(steps.api.outputs.data)['lat'] }}
+          echo Daten: ${{ fromJSON(steps.api.outputs.data)['timezone'] }}
+          echo Header: ${{ fromJSON(steps.api.outputs.data)['current'] }}
