@@ -15,9 +15,8 @@ jobs:
         uses: actionsflow/axios@v1
         id: api
         with:
-          url: https://hookb.in/Oeenpmm0WKcqOdYYO3ax
-          method: 'POST'
-          data: '{ "name": "koanama",  "job": "nixzumdoa" }'
+          url: ${{ secrets. WETTER_TEST_URL }}
+          method: 'GET'
       - run: echo ${{ steps.api.outputs.status }}
       - run: echo ${{ steps.api.outputs.data }}
       - run: echo ${{ steps.api.outputs.headers }}
