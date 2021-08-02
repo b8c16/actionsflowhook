@@ -1,0 +1,23 @@
+on:
+  webhook:
+    method: get
+    config:
+      active: true
+      force: true
+      debug: true
+      logLevel: debug
+jobs:
+  test-curl-action:
+    name: 'Perform REST API'
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Call API'
+        uses: actionsflow/axios@v1
+        id: api
+        with:
+          url: https://hookbin.com/zrreNjDmJPiol3MMlez2
+          method: 'POST'
+          data: '{ "name": "breeze",  "job": "devops" }'
+      - run: echo ${{ steps.api.outputs.status }}
+      - run: echo ${{ steps.api.outputs.data }}
+      - run: echo ${{ steps.api.outputs.headers }}
