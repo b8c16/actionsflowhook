@@ -15,7 +15,7 @@ jobs:
         uses: actionsflow/axios@v1
         id: api
         with:
-          url: https://hookbin.com/zrreNjDmJPiol3MMlez2
+          url: https://hookb.in/Oeenpmm0WKcqOdYYO3ax
           method: 'POST'
           data: '{ "name": "breeze",  "job": "devops" }'
         env:
