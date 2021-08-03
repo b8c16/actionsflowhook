@@ -18,13 +18,13 @@ jobs:
           url: ${{ secrets.WETTER_TEST_URL }}
           method: 'GET'
       - if: ${{ fromJSON(steps.api.outputs.data).daily.1.clouds }} < 10
-        run: echo Morgen wird es sonnig
+#        run: echo Morgen wird es sonnig
         uses: joelwmale/webhook-action@master
         with:
           url: ${{ secrets.WEBEX_URL_ROOSCM }}
           body: '{"markdown": "Morgen wird es sonnig"}'
       - if: ${{ fromJSON(steps.api.outputs.data).daily.1.clouds }} >= 10
-        run: echo Morgen wird es NICHT sonnig
+#        run: echo Morgen wird es NICHT sonnig
         uses: joelwmale/webhook-action@master
         with:
           url: ${{ secrets.WEBEX_URL_ROOSCM }}
