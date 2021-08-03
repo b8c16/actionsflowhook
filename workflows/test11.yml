@@ -29,9 +29,9 @@ jobs:
         uses: joelwmale/webhook-action@master
         with:
           url: ${{ secrets.WEBEX_URL_ROOSCM }}
-          body: '{"markdown": "Heute ist ${{steps.date.outputs.wotag}}<br>Morgen wird es NICHT sonnig"}'
+          body: '{"markdown": "Heute ist ${{steps.date.outputs.wotag}}<br>Morgen wird es NICHT sonnig<br>${{ fromJSON(steps.weatherapi.outputs.data).daily.1.clouds }}"}'
       - run: |
           echo Status: ${{ fromJSON(steps.weaterapi.outputs.data)['lat'] }}
           echo Daten: ${{ fromJSON(steps.weatherapi.outputs.data).timezone }}
           echo Header: ${{ fromJSON(steps.weatherapi.outputs.data).current.weather.0.main }}
-          echo Wolken: ${{ fromJSON(steps.weatherapi.outputs.data).daily.1.clouds
+          echo Wolken: ${{ fromJSON(steps.weatherapi.outputs.data).daily.1.clouds }}
