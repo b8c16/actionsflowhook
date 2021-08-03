@@ -4,8 +4,8 @@ on:
     config:
       active: true
       force: true
-      debug: true
-      logLevel: debug
+      debug: false
+#      logLevel: debug
 jobs:
   test-curl-action:
     name: 'Perform REST API'
@@ -17,9 +17,6 @@ jobs:
         with:
           url: ${{ secrets.WETTER_TEST_URL }}
           method: 'GET'
-#      - run: echo ${{ steps.api.outputs.status }}
-#      - run: echo ${{ steps.api.outputs.data }}
-#      - run: echo ${{ steps.api.outputs.headers }}
       - run: |
           echo Status: ${{ fromJSON(steps.api.outputs.data)['lat'] }}
           echo Daten: ${{ fromJSON(steps.api.outputs.data).timezone }}
