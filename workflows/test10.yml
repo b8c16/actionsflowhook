@@ -22,5 +22,5 @@ jobs:
 #      - run: echo ${{ steps.api.outputs.headers }}
       - run: |
           echo Status: ${{ fromJSON(steps.api.outputs.data)['lat'] }}
-          echo Daten: ${{ fromJSON(steps.api.outputs.data)['timezone'] }}
-          echo Header: ${{ fromJSON(steps.api.outputs.data)['weather'].[0].['main'] }}
+          echo Daten: ${{ fromJSON(steps.api.outputs.data).timezone }}
+          echo Header: ${{ fromJSON(steps.api.outputs.data).weather.[0].main }}
