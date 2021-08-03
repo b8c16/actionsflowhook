@@ -34,3 +34,4 @@ jobs:
           echo Status: ${{ fromJSON(steps.weaterapi.outputs.data)['lat'] }}
           echo Daten: ${{ fromJSON(steps.weatherapi.outputs.data).timezone }}
           echo Header: ${{ fromJSON(steps.weatherapi.outputs.data).current.weather.0.main }}
+          echo Wolken: ${{ fromJSON(steps.weatherapi.outputs.data).daily.1.clouds
