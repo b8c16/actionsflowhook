@@ -20,12 +20,12 @@ jobs:
       - name: Get current date
         id: date
         run: echo "::set-output name=wotag::$(date +'%A')"
-      - if: ${{ fromJSON(steps.weatherapi.outputs.data).daily.1.clouds }} < 10
+      - if: ${{ fromJSON(steps.weatherapi.outputs.data).daily.1.clouds < 10 }}
         uses: joelwmale/webhook-action@master
         with:
           url: ${{ secrets.WEBEX_URL_ROOSCM }}
           body: '{"markdown": "Heute ist ${{steps.date.outputs.wotag}}<br>Morgen wird es sonnig"}'
-      - if: ${{ fromJSON(steps.weatherapi.outputs.data).daily.1.clouds }} >= 10 AND ${{steps.date.outputs.wotag}} == "Tuesday"
+      - if: ${{ fromJSON(steps.weatherapi.outputs.data).daily.1.clouds >= 10 }} AND ${{ steps.date.outputs.wotag == "Tuesday" }}
         uses: joelwmale/webhook-action@master
         with:
           url: ${{ secrets.WEBEX_URL_ROOSCM }}
