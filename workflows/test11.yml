@@ -25,7 +25,7 @@ jobs:
         with:
           url: ${{ secrets.WEBEX_URL_ROOSCM }}
           body: '{"markdown": "Heute ist ${{steps.date.outputs.wotag}}<br>Morgen wird es sonnig"}'
-      - if: (${{ fromJSON(steps.weatherapi.outputs.data).daily.1.clouds }}  >= 10 AND ${{ steps.date.outputs.wotag }} == "Tuesday")
+      - if: ${{ fromJSON(steps.weatherapi.outputs.data).daily.1.clouds }}  >= 99
         uses: joelwmale/webhook-action@master
         with:
           url: ${{ secrets.WEBEX_URL_ROOSCM }}
