@@ -11,25 +11,26 @@ jobs:
     name: 'Perform REST API'
     runs-on: ubuntu-latest
     steps:
-      - name: 'Call API'
+      - name: Get openweathermap
         uses: actionsflow/axios@v1
-        id: api
+        id: weatherapi
         with:
           url: ${{ secrets.WETTER_TEST_URL }}
           method: 'GET'
-      - if: ${{ fromJSON(steps.api.outputs.data).daily.1.clouds }} < 10
-#        run: echo Morgen wird es sonnig
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=wotag::$(date +'%A')"
+      - if: ${{ fromJSON(steps.weatherapi.outputs.data).daily.1.clouds }} < 10
         uses: joelwmale/webhook-action@master
         with:
           url: ${{ secrets.WEBEX_URL_ROOSCM }}
-          body: '{"markdown": "Morgen wird es sonnig"}'
-      - if: ${{ fromJSON(steps.api.outputs.data).daily.1.clouds }} >= 10
-#        run: echo Morgen wird es NICHT sonnig
+          body: '{"markdown": "Heute ist ${{steps.date.outputs.wotag}}<br>Morgen wird es sonnig"}'
+      - if: ${{ fromJSON(steps.weatherapi.outputs.data).daily.1.clouds }} >= 10
         uses: joelwmale/webhook-action@master
         with:
           url: ${{ secrets.WEBEX_URL_ROOSCM }}
-          body: '{"markdown": "Morgen wird es NICHT sonnig"}'
+          body: '{"markdown": "Heute ist ${{steps.date.outputs.wotag}}<br>Morgen wird es NICHT sonnig"}'
       - run: |
-          echo Status: ${{ fromJSON(steps.api.outputs.data)['lat'] }}
-          echo Daten: ${{ fromJSON(steps.api.outputs.data).timezone }}
-          echo Header: ${{ fromJSON(steps.api.outputs.data).current.weather.0.main }}
+          echo Status: ${{ fromJSON(steps.weaterapi.outputs.data)['lat'] }}
+          echo Daten: ${{ fromJSON(steps.weatherapi.outputs.data).timezone }}
+          echo Header: ${{ fromJSON(steps.weatherapi.outputs.data).current.weather.0.main }}
