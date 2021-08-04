@@ -31,7 +31,7 @@ jobs:
             echo "::set-output name=wotag::'Dienstag'"
           elif [ "${{steps.date.outputs.wotag}}" = "Wednesday" ]
           then
-            echo "::set-output name=wotag::'Mittwoch'"
+            echo "::set-output name=wotag::Mittwoch"
           elif [ "${{steps.date.outputs.wotag}}" = "Thursday" ]
           then
             echo "::set-output name=wotag::'Donnerstag'"
