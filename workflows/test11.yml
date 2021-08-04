@@ -35,3 +35,4 @@ jobs:
           echo Daten: ${{ fromJSON(steps.weatherapi.outputs.data).timezone }}
           echo Header: ${{ fromJSON(steps.weatherapi.outputs.data).current.weather.0.main }}
           echo Wolken: ${{ fromJSON(steps.weatherapi.outputs.data).daily.1.clouds }}
+          echo Tag: ${{ (['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].indexOf(steps.date.outputs.wotag) }}
