@@ -23,9 +23,27 @@ jobs:
       - name: Translate current date
         id: translate
         run: |
+          if [ "${{steps.date.outputs.wotag}}" = "Monday" ]
+          then
+            echo "::set-output name=wotag::'Montag'"
+          if [ "${{steps.date.outputs.wotag}}" = "Tuesday" ]
+          then
+            echo "::set-output name=wotag::'Dienstag'"
           if [ "${{steps.date.outputs.wotag}}" = "Wednesday" ]
           then
             echo "::set-output name=wotag::'Mittwoch'"
+          if [ "${{steps.date.outputs.wotag}}" = "Thursday" ]
+          then
+            echo "::set-output name=wotag::'Donnerstag'"
+          if [ "${{steps.date.outputs.wotag}}" = "Friday" ]
+          then
+            echo "::set-output name=wotag::'Freitag'"
+          if [ "${{steps.date.outputs.wotag}}" = "Saturday" ]
+          then
+            echo "::set-output name=wotag::'Samstag'"
+          if [ "${{steps.date.outputs.wotag}}" = "Sunday" ]
+          then
+            echo "::set-output name=wotag::'Sonntag'"
           else
             echo "::set-output name=wotag::'Arbeitstag'"
           fi
