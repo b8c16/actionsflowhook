@@ -23,7 +23,7 @@ jobs:
       - name: Translate current date
         id: translate
         run: |
-          if [ "${{steps.date.outputs.wotag}}" = "Thursday" ]
+          if [ "${{steps.date.outputs.wotag}}" = "Wednesday" ]
           then
             echo "::set-output name=wotag::'Mittwoch'"
           else
@@ -44,3 +44,4 @@ jobs:
           echo Daten: ${{ fromJSON(steps.weatherapi.outputs.data).timezone }}
           echo Header: ${{ fromJSON(steps.weatherapi.outputs.data).current.weather.0.main }}
           echo Wolken: ${{ fromJSON(steps.weatherapi.outputs.data).daily.1.clouds }}
+          echo Wochentrag: ${{ steps.translate.outputs.wotag }}
