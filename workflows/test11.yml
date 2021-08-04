@@ -19,7 +19,7 @@ jobs:
           method: 'GET'
       - name: Get current date
         id: date
-        run: echo "::set-output name=wotag::$(LC_ALL=de_DE.utf8 date +'%A')"
+        run: echo "::set-output name=wotag::$(LC_TIME=de_DE.utf8 date +'%A')"
       - if: ${{ fromJSON(steps.weatherapi.outputs.data).daily.1.clouds }}  < 10
         uses: joelwmale/webhook-action@master
         with:
