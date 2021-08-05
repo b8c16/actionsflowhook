@@ -4,8 +4,8 @@ on:
     config:
       active: true
       force: true
-      debug: true
-      logLevel: debug
+#      debug: true
+#      logLevel: debug
 jobs:
   test-curl-action:
     name: 'Perform REST API'
