@@ -50,5 +50,5 @@ jobs:
       - name: Sende an Webex
         uses: joelwmale/webhook-action@master
         with:
-          url: ${{ secrets.WEBEX_ROOMSCM }}
+          url: ${{ secrets.WEBEX_URL_ROOMIT1 }}
           body: '{"markdown": "Dienstbeginn Markus<br>Ich wünsche Euch einen schönen ${{steps.translate.outputs.wotag}}!"}'
