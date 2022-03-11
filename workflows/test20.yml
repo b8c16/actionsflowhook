@@ -1,0 +1,28 @@
+on:
+  rss:
+    url:
+      - http://evangelizo.org/rss/v2/evangelizo_rss-de.xml
+      - https://rss.evangelizo.org/rss/v2/evangelizo_rss-de.xml
+    config:
+      limit: 20
+	  filter:
+        content:
+          $regex: ....+
+        categories:
+          $regex: MEDITATIO
+jobs:
+  print:
+    name: Print
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Outputs
+        env:
+          categories: ${{on.rss.outputs.categories}}
+          title: ${{on.rss.outputs.title}}
+          contentSnippet: ${{on.rss.outputs.contentSnippet}}
+          link: ${{on.rss.outputs.link}}
+        run: |
+          echo category: $categories
+          echo title: $title
+          echo contentSnippet: $contentSnippet
+          echo link: $link
